@@ -1,14 +1,20 @@
+// Import des hooks useEffect et useState ainsi que la librairie axios
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './searchbar.css'
+// Import du fichier CSS pour les styles du composant SearchBar
+import './searchbar.css';
 
+// Définition du composant SearchBar
 const SearchBar = () => {
+    // Affichage d'un message dans la console pour indiquer que le composant a été chargé
     console.log('loaded');
-    const [allGames, setAllGames] = useState([]);
-    const [filteredGames, setFilteredGames] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
 
+    // Déclaration des états avec useState
+    const [allGames, setAllGames] = useState([]); // Liste de tous les jeux
+    const [filteredGames, setFilteredGames] = useState([]); // Liste des jeux filtrés selon la recherche
+    const [searchTerm, setSearchTerm] = useState(""); // Terme de recherche saisi par l'utilisateur
 
+    // Fonction asynchrone pour récupérer les données des jeux depuis l'API
     const fetchApi = async () => {
         const options = {
             method: 'GET',
@@ -19,34 +25,43 @@ const SearchBar = () => {
             } 
         };
         try {
-            const response = await axios.request(options); 
+            // Requête HTTP GET vers l'API avec axios
+            const response = await axios.request(options);
+            // Mise à jour de l'état allGames avec les données récupérées
             setAllGames(response.data);
-            console.log(response.data);
+            console.log(response.data); // Affichage des données récupérées dans la console
         } catch (error) {
+            // Affichage des erreurs dans la console en cas d'échec de la requête
             console.error(error);
             throw error; // Lève à nouveau l'erreur pour la gérer ailleurs si nécessaire
         }
     }
 
-        useEffect(() => {
-            fetchApi()
-        }, []);
+    // Effet useEffect pour exécuter fetchApi une fois après le premier rendu du composant
+    useEffect(() => {
+        fetchApi(); // Appel de la fonction fetchApi
+    }, []);
 
-        const handleSearch = () => {
-            if (!searchTerm.trim()) return;
-            const filteredList = allGames.filter((game) => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
-            setFilteredGames(filteredList);
-        }
-        console.log(filteredGames);
+    // Fonction pour filtrer les jeux en fonction du terme de recherche saisi par l'utilisateur
+    const handleSearch = () => {
+        // Vérification si le terme de recherche est vide
+        if (!searchTerm.trim()) return;
+        // Filtrage des jeux en fonction du titre et mise à jour de l'état filteredGames
+        const filteredList = allGames.filter((game) => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        setFilteredGames(filteredList);
+    }
 
+    // Affichage du composant SearchBar avec un champ de recherche et une icône de recherche
     return (
         <>
         <div id="searchbar">
             <input type="text" placeholder="Search.." id="searchinput" name="search" onChange={e => setSearchTerm(e.target.value)}/>
+            {/* Icône de recherche avec un événement onClick pour déclencher la recherche */}
             <img src="src\assets\search-icon.svg" alt="search icon" id="search-icon" width="15" onClick={handleSearch} />
         </div>
         </>
     )
 }
 
-export default SearchBar
+// Export du composant SearchBar pour pouvoir l'utiliser dans d'autres fichiers
+export default SearchBar;
