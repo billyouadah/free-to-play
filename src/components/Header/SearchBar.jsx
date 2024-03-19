@@ -49,13 +49,15 @@ const SearchBar = () => {
         // Filtrage des jeux en fonction du titre et mise à jour de l'état filteredGames
         const filteredList = allGames.filter((game) => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
         setFilteredGames(filteredList);
+        setSearchTerm("");
     }
+    console.log(filteredGames);
 
     // Affichage du composant SearchBar avec un champ de recherche et une icône de recherche
     return (
         <>
         <div id="searchbar">
-            <input type="text" placeholder="Search.." id="searchinput" name="search" onChange={e => setSearchTerm(e.target.value)}/>
+            <input type="text" placeholder="Search.." id="searchinput" name="search" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
             {/* Icône de recherche avec un événement onClick pour déclencher la recherche */}
             <img src="src\assets\search-icon.svg" alt="search icon" id="search-icon" width="15" onClick={handleSearch} />
         </div>
