@@ -1,31 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import DisplayHeader from './components/Header/DisplayHeader'
-import DisplayFooter from './components/Header/DisplayFooter'
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-import SearchBar from './components/Header/SearchBar'
-import DisplayCatalogue from './components/DisplayCatalogue'
+import React, { useState } from 'react';
+import DisplayHeader from './components/Header/DisplayHeader';
+import DisplayFooter from './components/Header/DisplayFooter';
+import SearchBar from './components/Header/SearchBar';
+import DisplayCatalogue from './components/DisplayCatalogue';
+import './App.css';
 
 
- function App() {
+function App() {
+  const [filteredGames, setFilteredGames] = useState([]);
 
- 
+
   return (
     <>
-    <div>
-       <DisplayHeader>
-       </DisplayHeader> 
-       <SearchBar/>
-      <DisplayCatalogue/>     
-  </div>
-    <DisplayFooter>
-    </DisplayFooter>
-</>
-  )
-  }
-export default App 
+      <DisplayHeader/>
+      <div className="App">
+        <SearchBar setFilteredGames={setFilteredGames} />
+        <div className="games-container">
+          {filteredGames.map((game) => (
+            <div className="card" key={game.id}>
+              <h2>{game.title}</h2>
+              <p>{game.short_description}</p>
+              <img src={game.thumbnail} alt={game.title} />
+            </div>
+          ))}
+        </div>
+        <DisplayCatalogue/>
+      </div>
+      <DisplayFooter/>
+    </>
+  );
+}
+
+export default App;

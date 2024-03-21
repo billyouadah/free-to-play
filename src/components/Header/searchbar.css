@@ -8,10 +8,11 @@ body {
 
 #searchinput {
     border: none;
-    border-radius: 10px;
-    margin: 0 8px;
+    border-radius: 11px;
+    margin: 12px;
 }
 
 #search-icon {
     cursor: pointer;
+    width: 30px;
 }

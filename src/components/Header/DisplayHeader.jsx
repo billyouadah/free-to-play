@@ -27,13 +27,12 @@ function DisplayHeader() {
     marginRight : "20%" ,
     
   }}>
-    <a href="#">Accueil</a>
-    <a href="#">Catalogue</a>
-    <a href="#">Contact</a>
+    <a href="Accueil">Accueil</a>
+    <a href="Catalogue">Catalogue</a>
+    <a href="Contact">Contact</a>
   </div>
-            <div>
-            </div>
-            <InputBase
+            <div> 
+             <InputBase
               placeholder=" votre recherche"
               startAdornment={
                 <IconButton>
@@ -46,6 +45,7 @@ function DisplayHeader() {
             borderRadius : "10px"
              }} 
             />
+            </div>
           </Stack>
         </nav>
       </header>
