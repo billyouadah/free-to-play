@@ -1,3 +1,8 @@
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,8 +20,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: black;
   text-decoration: inherit;
+  margin: 30px;
+  flex-direction: row;
+  justify-content: space-evenly
+  
 }
 a:hover {
   color: #535bf2;
@@ -24,12 +33,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* display: flex; */
+  /* place-items: center; */
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -65,4 +73,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+ 
 }
