@@ -12,11 +12,7 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
       <DisplayHeader setFilteredGames={setFilteredGames} /> 
-=======
-   <DisplayHeader setFilteredGames={setFilteredGames} /> 
->>>>>>> 8a9e74b4ef583dd784e5f42ee9bf8e83ec1b90b3
       <div className="App">
         <div className="games-container">
           {filteredGames.map((game) => (
