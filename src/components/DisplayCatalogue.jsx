@@ -35,7 +35,7 @@ function DisplayCatalogue({ setFilteredGames }) {
     const tendanceGame = allGame.slice(0, 200);
     console.log(tendanceGame);
     return (
-      <Grid container  display="flex" justifyContent="center" sx={{ gap: 5 }} >
+      <Grid container  display="flex" justifyContent="center" sx={{ gap: 5, paddingTop: '64px'}} >
         {tendanceGame.map((element) => (
           <Card key={element.id} sx={{ 
             maxWidth: 270,
@@ -54,8 +54,6 @@ function DisplayCatalogue({ setFilteredGames }) {
               <Typography variant="body2" color="text.secondary">{element.short_description}</Typography>
             </CardContent>
             </div>
-            <div></div>
-            
           </CardActionArea>
         </Card>
         ))}

@@ -41,10 +41,11 @@
   color: #888;
 }
 
-@font-face {
+@font-face{
   font-family: Audiowide-Regular;
-  src: url(./Font/Audiowide-Regular.ttf);
+  src : url(./Font/Audiowide-Regular.ttf);
 }
+
 .audiowide-regular {
   font-family: "Audiowide-Regular";
   font-weight: bolder;
