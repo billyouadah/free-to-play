@@ -1,0 +1,18 @@
+body {
+    background-color: blueviolet;
+}
+
+#searchbar {
+    display: flex;
+}
+
+#searchinput {
+    border: none;
+    border-radius: 11px;
+    margin: 12px;
+}
+
+#search-icon {
+    cursor: pointer;
+    width: 30px;
+}
