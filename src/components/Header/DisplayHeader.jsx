@@ -4,9 +4,9 @@ import { Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase, IconButton } from '@mui/material';
 import { Block } from '@mui/icons-material';
+import SearchBar from './SearchBar';
 
-
-function DisplayHeader() {
+function DisplayHeader({ setFilteredGames }) {
     return (
         <header>
         <nav>
@@ -17,7 +17,7 @@ function DisplayHeader() {
                 backgroundColor: 'white',
                 margin: "10px",
                 borderRadius: "10px",
-                display : "block"
+                display : "block",
               }} />
 
 </div>
@@ -25,27 +25,16 @@ function DisplayHeader() {
    textDecoration :'none',
     borderRadius: "10px",
     marginRight : "20%" ,
+
     
   }}>
     <a href="Accueil">Accueil</a>
     <a href="Catalogue">Catalogue</a>
     <a href="Contact">Contact</a>
   </div>
-            <div> 
-             <InputBase
-              placeholder=" votre recherche"
-              startAdornment={
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              }
-              sx={{ 
-            backgroundColor: 'white',
-           margin: "10px",
-            borderRadius : "10px"
-             }} 
-            />
-            </div>
+  <div>
+      <SearchBar setFilteredGames={setFilteredGames} /> {/* Pass setFilteredGames here */}
+  </div>
           </Stack>
         </nav>
       </header>

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
-function DisplayCatalogue() {
+function DisplayCatalogue({ setFilteredGames }) {
     const [allGame, setAllGame] = useState([]);
   
     const fetchAllGame = async () => {
@@ -35,7 +35,7 @@ function DisplayCatalogue() {
     const tendanceGame = allGame.slice(0, 200);
     console.log(tendanceGame);
     return (
-      <Grid container  display="flex" justifyContent="center" sx={{ gap: 5 }} >
+      <Grid container  display="flex" justifyContent="center" sx={{ gap: 5, paddingTop: '64px'}} >
         {tendanceGame.map((element) => (
           <Card key={element.id} sx={{ 
             maxWidth: 270,
@@ -53,7 +53,6 @@ function DisplayCatalogue() {
               <Typography variant="body2" color="text.secondary">{element.short_description}</Typography>
             </CardContent>
             </div>
-            <div></div>
           </CardActionArea>
         </Card>
         ))}

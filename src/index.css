@@ -1,5 +1,4 @@
 .audiowide-regular {
-  font-family: "Audiowide", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -37,7 +36,9 @@ body {
   /* place-items: center; */
   /* min-width: 320px;
   min-height: 100vh; */
-  background-color: #9D4EDD;
+  /* background-color: #f168e6; */
+  background-color: #10002B;
+  color: white;
 }
 h1 {
   font-size: 3.2em;
@@ -69,7 +70,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: white;
+    color: rgb(115, 33, 159);
   }
   button {
     background-color: #f9f9f9;

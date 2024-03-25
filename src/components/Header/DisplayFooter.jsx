@@ -4,12 +4,12 @@ function DisplayFooter() {
   return (
     <footer
       style={{
-        position: "fixed",
+        // position: "fixed",
         left: 0,
         bottom: 0,
         width: "100%",
         backgroundColor: "#9D4EDD",
-        padding: "20px",
+        // padding: "20px",
         display: "flex",
         justifyContent: "center",
       }}
