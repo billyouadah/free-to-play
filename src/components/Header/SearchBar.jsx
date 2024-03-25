@@ -2,16 +2,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Import du fichier CSS pour les styles du composant SearchBar
-import './searchbar.css';
+import './searchbar.css'
 
 // Définition du composant SearchBar
-const SearchBar = () => {
+const SearchBar = ({ setFilteredGames }) => {
     // Affichage d'un message dans la console pour indiquer que le composant a été chargé
     console.log('loaded');
 
     // Déclaration des états avec useState
     const [allGames, setAllGames] = useState([]); // Liste de tous les jeux
-    const [filteredGames, setFilteredGames] = useState([]); // Liste des jeux filtrés selon la recherche
     const [searchTerm, setSearchTerm] = useState(""); // Terme de recherche saisi par l'utilisateur
 
     // Fonction asynchrone pour récupérer les données des jeux depuis l'API
@@ -44,6 +43,7 @@ const SearchBar = () => {
 
     // Fonction pour filtrer les jeux en fonction du terme de recherche saisi par l'utilisateur
     const handleSearch = () => {
+        setFilteredGames([])
         // Vérification si le terme de recherche est vide
         if (!searchTerm.trim()) return;
         // Filtrage des jeux en fonction du titre et mise à jour de l'état filteredGames
@@ -51,7 +51,6 @@ const SearchBar = () => {
         setFilteredGames(filteredList);
         setSearchTerm("");
     }
-    console.log(filteredGames);
 
     // Affichage du composant SearchBar avec un champ de recherche et une icône de recherche
     return (

@@ -1,43 +1,14 @@
-import axios from 'axios';
-import { useState, useEffect } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, CardActions, Chip } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
-
-function DisplayCatalogue() {
-  const [allGame, setAllGame] = useState([]);
-
-  const fetchAllGame = async () => {
-    const options = {
-      method: 'GET',
-      url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-      headers: {
-        'X-RapidAPI-Key': '092661c20bmsha8be65cf21c2169p1dd15cjsn94b2b8076799',
-        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-      }
-    };
-
-    try {
-      const response = await axios.request(options);
-      setAllGame(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllGame();
-  }, []);
-
-  const tendanceGame = allGame.slice(0, 200);
-  console.log(tendanceGame);
-  return (
-    <Grid container  display="flex" justifyContent="center" sx={{ gap: 5 }} >
-      {tendanceGame.map((element) => (
+function Display({ tableau }) {
+    return (
+        <Grid container  display="flex" justifyContent="center" sx={{ gap: 5 }} >
+      {tableau.map((element) => (
         <Card key={element.id} sx={{ 
           maxWidth: 270,
           borderRadius: '10px',
@@ -54,12 +25,15 @@ function DisplayCatalogue() {
             <Typography variant="body2" color="text.secondary">{element.short_description}</Typography>
           </CardContent>
           </div>
-          <div></div>
+          <CardActions>
+          <Chip size="small" label={element.genre} sx={{ backgroundColor:'#10002b', color:'white' }}/>
+          <Chip size="small" label={element.platform} sx={{ backgroundColor:'#10002b', color:'white' }}/>
+          </CardActions>
         </CardActionArea>
       </Card>
       ))}
     </Grid>
-  );
+    )
 }
 
-export default DisplayCatalogue;
+export default Display
