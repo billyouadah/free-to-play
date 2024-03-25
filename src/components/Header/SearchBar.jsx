@@ -43,7 +43,6 @@ const SearchBar = ({ setFilteredGames }) => {
 useEffect(() => {
     fetchApi(); // Appel de la fonction fetchApi
 }, []);
-
 // Fonction pour filtrer les jeux en fonction du terme de recherche saisi par l'utilisateur
 const handleSearch = () => {
     // Vérification si le terme de recherche est vide
@@ -71,3 +70,4 @@ return (
 
 // Export du composant SearchBar pour pouvoir l'utiliser dans d'autres fichiers
 export default SearchBar;
+

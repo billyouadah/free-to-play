@@ -1,22 +1,22 @@
 
-function SearchBar() {
+// function SearchBar() {
 
-    const classes = useStyles();
+//     const classes = useStyles();
   
-    return (
-      <TextField
-        className={classes.searchInput}
-        variant="outlined"
-        placeholder="Rechercher..."
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
-    );
-  }
+//     return (
+//       <TextField
+//         className={classes.searchInput}
+//         variant="outlined"
+//         placeholder="Rechercher..."
+//         InputProps={{
+//           startAdornment: (
+            // <InputAdornment position="start">
+            //   <SearchIcon />
+            // </InputAdornment>
+  //         ),
+  //       }}
+  //     />
+  //   );
+  // }
   
-  export default SearchBar;
+  // export default SearchBar;

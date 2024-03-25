@@ -6,15 +6,15 @@ import DisplayCatalogue from './components/DisplayCatalogue';
 import './App.css';
 
 
+
+
 function App() {
   const [filteredGames, setFilteredGames] = useState([]);
 
-
   return (
     <>
-      <DisplayHeader/>
+      <DisplayHeader setFilteredGames={setFilteredGames} /> 
       <div className="App">
-        <SearchBar setFilteredGames={setFilteredGames} />
         <div className="games-container">
           {filteredGames.map((game) => (
             <div className="card" key={game.id}>
@@ -24,9 +24,9 @@ function App() {
             </div>
           ))}
         </div>
-        <DisplayCatalogue/>
+        <DisplayCatalogue />
       </div>
-      <DisplayFooter/>
+      <DisplayFooter />
     </>
   );
 }

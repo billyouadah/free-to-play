@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
-function DisplayCatalogue() {
+function DisplayCatalogue({ setFilteredGames }) {
     const [allGame, setAllGame] = useState([]);
   
     const fetchAllGame = async () => {
@@ -44,6 +44,7 @@ function DisplayCatalogue() {
             transition: 'transform .3s',
             '&:hover': {
               transform: 'scale3d(1.05, 1.05, 1)',
+               
             }, }}>
           <CardActionArea href={element.game_url} sx={{ height: '100%',  display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
             <div>
@@ -54,6 +55,7 @@ function DisplayCatalogue() {
             </CardContent>
             </div>
             <div></div>
+            
           </CardActionArea>
         </Card>
         ))}
