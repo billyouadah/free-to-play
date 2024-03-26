@@ -18,6 +18,10 @@
     margin-bottom: 1em; /* Marge en bas */
 }
 
+.error {
+    color: #9D4EDD;
+}
+
 /* Style pour l'input lorsqu'il est en hover */
 .input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border-color: #9D4EDD; /* Couleur de la bordure */

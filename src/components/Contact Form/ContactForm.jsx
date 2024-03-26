@@ -75,7 +75,7 @@ function ContactForm () {
                         value={formik.values.firstName}
                         />
                         {formik.touched.firstName && formik.errors.firstName ? (
-                            <div>{formik.errors.firstName}</div>
+                            <div className='error'>{formik.errors.firstName}</div>
                         ) : null}
                         <TextField 
                         size='small'
@@ -91,7 +91,7 @@ function ContactForm () {
                         value={formik.values.lastName}
                         />
                         {formik.touched.lastName && formik.errors.lastName ? (
-                            <div>{formik.errors.lastName}</div>
+                            <div className='error'>{formik.errors.lastName}</div>
                         ) : null}
 
                         <TextField 
@@ -108,7 +108,7 @@ function ContactForm () {
                         value={formik.values.email}
                         />
                         {formik.touched.email && formik.errors.email ? (
-                            <div>{formik.errors.email}</div>
+                            <div className='error'>{formik.errors.email}</div>
                         ) : null}
 
                         <TextField 
@@ -126,7 +126,7 @@ function ContactForm () {
                         value={formik.values.message}
                         />
                         {formik.touched.message && formik.errors.message ? (
-                            <div>{formik.errors.message}</div>
+                            <div className='error'>{formik.errors.message}</div>
                         ) : null}
                     </div>
                     <Button 
