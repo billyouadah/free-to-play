@@ -1,6 +1,6 @@
 // import './App.css'
 // import SearchBar from './components/Header/SearchBar'
-import ContactForm from './components/Contact Form/ContactForm'
+// import ContactForm from './components/Contact Form/ContactForm'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       {/* <SearchBar /> */}
-      <ContactForm />
+      {/* <ContactForm /> */}
     </>
   )
 }
