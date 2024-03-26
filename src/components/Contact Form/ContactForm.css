@@ -1,0 +1,35 @@
+/* Style pour les éléments avec l'ID #contact-container */
+#contact-container {
+    margin: 0 auto; /* Centrer horizontalement */
+    max-width: 1320px; /* Définir une largeur maximale */
+}
+
+/* Style pour l'élément avec l'ID #title */
+#title {
+    color: #9D4EDD; /* Couleur du texte */
+    margin: 0 auto; /* Centrer horizontalement */
+}
+
+/* Style pour l'élément avec l'ID #inputs */
+#inputs {
+    max-width: 600px; /* Définir une largeur maximale */
+    display: flex; /* Utiliser un affichage en ligne */
+    flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
+    margin-bottom: 1em; /* Marge en bas */
+}
+
+/* Style pour l'input lorsqu'il est en hover */
+.input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #9D4EDD; /* Couleur de la bordure */
+}
+
+/* Style pour l'input lorsqu'il est en focus */
+.input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #9D4EDD; /* Couleur de la bordure */
+}
+
+/* Style pour le label de l'input lorsqu'il est en focus */
+.input .MuiInputLabel-root.Mui-focused {
+    color: #9D4EDD; /* Couleur du texte */
+    border-color: #9D4EDD; /* Couleur de la bordure */
+}
