@@ -1,5 +1,5 @@
 // import './App.css'
-import SearchBar from './components/Header/SearchBar'
+// import SearchBar from './components/Header/SearchBar'
 import ContactForm from './components/Contact Form/ContactForm'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <ContactForm />
     </>
   )
