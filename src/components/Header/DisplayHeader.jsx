@@ -1,7 +1,5 @@
 import img from "../../assets/Poisson.png";
 import { Stack } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { InputBase, IconButton } from "@mui/material";
 import SearchBar from "./SearchBar";
 
 function DisplayHeader({ setFilteredGames }) {
