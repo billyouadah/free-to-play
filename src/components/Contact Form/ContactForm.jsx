@@ -1,9 +1,15 @@
+import { useState } from 'react';
+import PopUp from './PopUp';
 import TextField from '@mui/material/TextField'; // Importe le composant TextField de Material-UI
 import Button from '@mui/material/Button'; // Importe le composant Button de Material-UI
 import { useFormik } from 'formik'; // Importe la fonction useFormik de Formik pour la gestion du formulaire
 import './ContactForm.css' // Importe le fichier CSS pour les styles supplémentaires du formulaire
 
 function ContactForm () {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     // Fonction de validation du formulaire
     const validate = values => {
         const errors = {};
@@ -50,7 +56,7 @@ function ContactForm () {
         validate, // Utilisation de la fonction de validation définie ci-dessus
         onSubmit: values => {
             console.log(JSON.stringify(values, null, 2)), // Affiche les valeurs soumises dans la console
-            alert("Votre message à bien été envoyer") // Affiche une alerte pour indiquer que le message a été envoyé avec succès
+            handleOpen(); // Ouvre le modal
         },
     })
 
@@ -135,6 +141,7 @@ function ContactForm () {
                     variant="contained">Envoyer</Button>
                 </form>
             </div>
+            <PopUp isOpen={open} handleClose={handleClose} />
         </>
     ) 
 }
