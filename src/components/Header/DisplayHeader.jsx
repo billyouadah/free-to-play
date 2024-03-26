@@ -11,12 +11,14 @@ function DisplayHeader({ setFilteredGames }) {
           bgcolor="#9D4EDD"
           justifyContent="space-between"
           alignItems="center"
+          paddingLeft="20px"
+          paddingRight="20px"
         >
           <div>
             <img
               src={img}
               alt=""
-              width="75"
+              width="75px"
               style={{
                 backgroundColor: "white",
                 margin: "10px",
@@ -27,14 +29,16 @@ function DisplayHeader({ setFilteredGames }) {
           </div>
           <div
             style={{
-              textDecoration: "none",
               borderRadius: "10px",
               marginRight: "20%",
-            }}
-          >
-            <a href="Accueil">Accueil</a>
-            <a href="Catalogue">Catalogue</a>
-            <a href="Contact">Contact</a>
+              display: "flex",
+              justifyContent: "space-around",
+	            alignItems: "center",
+              gap: "100px",
+            }}>
+            <a href="Accueil" style={{ textDecoration: "none", color: "black" }}>Accueil</a>
+            <a href="Catalogue" style={{ textDecoration: "none", color: "black" }}>Catalogue</a>
+            <a href="Contact" style={{ textDecoration: "none", color: "black" }}>Contact</a>
           </div>
           <div>
           <SearchBar setFilteredGames={setFilteredGames}></SearchBar>

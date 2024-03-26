@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import Display from './Display';
 import DisplayHeader from './Header/DisplayHeader';
+import DisplayFooter from './Header/DisplayFooter';
 import FiltreBar from './FiltreBar';
 
 function DisplayGames() {
@@ -39,9 +40,10 @@ function DisplayGames() {
     <div>
       <DisplayHeader setFilteredGames={setFilteredGames}></DisplayHeader>
       <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={tendanceGame} loading={loading} />
-      <div>
+      <div style={{ maxWidth: "1280px", marginLeft:"auto", marginRight: "auto" }}>
         <Display tableau={filteredGames.length === 0 ? tendanceGame : filteredGames} />
       </div>
+      <DisplayFooter />
     </div>
   );
 }
