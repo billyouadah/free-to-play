@@ -1,7 +1,7 @@
 import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
+const FiltreBar = ({ setFilteredGames, gameArray, loading }) => {
   const [genre, setGenre] = useState("");
   const [plateforme, setPlateforme] = useState("");
 
@@ -22,7 +22,7 @@ const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
   };
 
   const applyFilter = () => {
-    let filtered = tendanceGame;
+    let filtered = gameArray;
     if (genre !== "All") {
       filtered = filtered.filter((game) => game.genre.includes(genre));
     }
@@ -33,10 +33,10 @@ const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
   };
 
     return (
-    <div>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }} >
-        <InputLabel id="categorie-label">Genre/Tag</InputLabel>
-        <Select sx={{ Color: 'white' }}
+    <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:'200px' }}>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 150, backgroundColor: '#9d4edd', borderRadius:'15px', padding:'10px' }} >
+        <InputLabel id="categorie-label" sx={{ marginLeft:'10px' }}>Genre/Tag</InputLabel>
+        <Select 
           labelId="categorie-label"
           id="categorie"
           label="Catégorie"
@@ -86,8 +86,8 @@ const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
           <MenuItem value="Permadeath">Permadeath</MenuItem>
         </Select>
       </FormControl>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="plateforme-label">Plateforme</InputLabel>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 150, backgroundColor: '#9d4edd', borderRadius:'15px', padding:'10px' }}>
+        <InputLabel id="plateforme-label" sx={{ marginLeft:'10px'}} >Plateforme</InputLabel>
         <Select
           labelId="plateforme-label"
           id="plateforme"

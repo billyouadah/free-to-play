@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import SearchBar from "./SearchBar";
 
 function DisplayHeader({ setFilteredGames }) {
+  console.log("ddddddd");
   return (
     <header>
       <nav>
@@ -36,7 +37,7 @@ function DisplayHeader({ setFilteredGames }) {
 	            alignItems: "center",
               gap: "100px",
             }}>
-            <a href="Accueil" style={{ textDecoration: "none", color: "black" }}>Accueil</a>
+            <a href="/Accueil" style={{ textDecoration: "none", color: "black" }}>Accueil</a>
             <a href="Catalogue" style={{ textDecoration: "none", color: "black" }}>Catalogue</a>
             <a href="Contact" style={{ textDecoration: "none", color: "black" }}>Contact</a>
           </div>
