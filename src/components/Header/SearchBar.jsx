@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Import du fichier CSS pour les styles du composant SearchBar
-import './searchbar.css'
+import './searchbar.css';
+import img from "../../assets/search-bar-01.png";
+
 
 // Définition du composant SearchBar
 const SearchBar = ({ setFilteredGames }) => {
@@ -11,7 +13,12 @@ const SearchBar = ({ setFilteredGames }) => {
 
     // Déclaration des états avec useState
     const [allGames, setAllGames] = useState([]); // Liste de tous les jeux
+
+    console.log(allGames);
+    // console.log(filteredGames);
     const [searchTerm, setSearchTerm] = useState(""); // Terme de recherche saisi par l'utilisateur
+    console.log();
+
 
     // Fonction asynchrone pour récupérer les données des jeux depuis l'API
     const fetchApi = async () => {
@@ -28,7 +35,6 @@ const SearchBar = ({ setFilteredGames }) => {
             const response = await axios.request(options);
             // Mise à jour de l'état allGames avec les données récupérées
             setAllGames(response.data);
-            console.log(response.data); // Affichage des données récupérées dans la console
         } catch (error) {
             // Affichage des erreurs dans la console en cas d'échec de la requête
             console.error(error);
@@ -58,7 +64,9 @@ const SearchBar = ({ setFilteredGames }) => {
         <div id="searchbar">
             <input type="text" placeholder="Search.." id="searchinput" name="search" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
             {/* Icône de recherche avec un événement onClick pour déclencher la recherche */}
-            <img src="src\assets\search-icon.svg" alt="search icon" id="search-icon" width="15" onClick={handleSearch} />
+            <div>
+            <img src={img} alt="search icon" id="search-icon" width="15" onClick={handleSearch} />
+            </div>
         </div>
         </>
     )
