@@ -32,7 +32,6 @@ function Catalogue({ setFilteredGames, filteredGames }) {
     fetchAllGame();
   }, []);
 
-  const tendanceGame = allGame.slice(0, 200);
 
   return (
     <div>
@@ -40,9 +39,9 @@ function Catalogue({ setFilteredGames, filteredGames }) {
       sx={{ color:"white", margin:{xs:"10px", sm:"20px", md:"30px"}, fontSize:{xs:"42px", sm:"75px", md:"96px"} }}>
         Game :
       </Typography>
-      <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={tendanceGame} loading={loading} />
+      <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={allGame} loading={loading} />
       <div style={{ maxWidth:"1280px", marginLeft:"auto", marginRight:"auto" }}>
-        <Display tableau={filteredGames.length === 0 ? tendanceGame : filteredGames} />
+        <Display fullTab={allGame} setFilteredGames={setFilteredGames} tableau={filteredGames.length === 0 ? allGame : filteredGames} />
       </div>
     </div>
   );
