@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import GamepadIcon from '@mui/icons-material/Gamepad';
 import EmailIcon from '@mui/icons-material/Email';
 import { useState } from "react";
-import SearchBar from "./SearchBar"
+import SearchBar from "./SearchBar/SearchBar"
 
 function DisplayHeader({ setFilteredGames }) {
   console.log("ddddddd");

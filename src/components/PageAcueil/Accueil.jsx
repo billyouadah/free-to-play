@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import '../App.css';
-import Carousel3D from './Carousel3D';
-import { CardActionArea, CardActions, Card, Button, CardMedia, CardContent, Typography } from '@mui/material';
+import '../../App.css';
+import Carousel3D from '../Carousel/Carousel3D';
+import { CardActionArea, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 function Accueil() {
@@ -35,8 +35,11 @@ function Accueil() {
 
   return (
     <div className="App">
-      <h1 style={{ color:'white', fontSize:'64px' }}>Fish-To-Play</h1>
-      <div >
+      <Typography variant='h1' fontFamily="audiowide-regular" 
+      sx={{ color:"white", margin:{xs:"10px", sm:"20px", md:"30px"}, fontSize:{xs:"42px", sm:"75px", md:"96px"} }}>
+        Fish-To-Play
+      </Typography>
+      <div style={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
         <Carousel3D />
       </div>
       <h1 style={{ color:'white', fontSize:'32px' }}>Fish tendance:</h1>

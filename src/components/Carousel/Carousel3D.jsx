@@ -37,6 +37,7 @@ function Carousel3D() {
 
   return (
       <Carousel
+        sx={{ width:{xs:"95%", sm:"70%", md:"40%"} }}
         autoPlay={true}
         animation="fade"
         timeout={100}
@@ -48,6 +49,7 @@ function Carousel3D() {
             padding: '10px',
             color: 'black',
             border: 'none',
+            outline:"none",
           }
         }}
         activeIndicatorIconButtonProps={{
@@ -58,7 +60,7 @@ function Carousel3D() {
         }}
       >
         {randomGameIndices.map((index, i) => (
-          <Paper key={i} sx={{ borderRadius: '20px', background: 'transparent', boxShadow: 'none', margin:"10px", maxWidth:"500px" }}>
+          <Paper key={i} sx={{ borderRadius: '20px', background: 'transparent', boxShadow: 'none', margin:"10px", }}>
             <a href={allGame[index]?.game_url} target="_blank" rel="noopener noreferrer"><img src={allGame[index]?.thumbnail}  alt={`Image ${i + 1}`} style={{ height: '100%', borderRadius: '20px', width:"100%" }} /></a>
           </Paper>
         ))}

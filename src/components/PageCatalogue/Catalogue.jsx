@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import Display from './Display';
-import DisplayHeader from './Header/DisplayHeader';
-import FiltreBar from './FiltreBar';
+import Display from '../Display/Display';
+import { Typography } from '@mui/material';
+import FiltreBar from '../FiltreBar/FiltreBar';
 
-function DisplayGames() {
-  const [filteredGames, setFilteredGames] = useState([]);
+function Catalogue({ setFilteredGames, filteredGames }) {
   const [allGame, setAllGame] = useState([]);
   const [loading, setLoading] = useState(true); // Ajout de l'état de chargement
 
@@ -37,13 +36,16 @@ function DisplayGames() {
 
   return (
     <div>
-      <DisplayHeader setFilteredGames={setFilteredGames}></DisplayHeader>
+      <Typography variant='h1' fontFamily="audiowide-regular" 
+      sx={{ color:"white", margin:{xs:"10px", sm:"20px", md:"30px"}, fontSize:{xs:"42px", sm:"75px", md:"96px"} }}>
+        Game :
+      </Typography>
       <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={tendanceGame} loading={loading} />
-      <div>
+      <div style={{ maxWidth:"1280px", marginLeft:"auto", marginRight:"auto" }}>
         <Display tableau={filteredGames.length === 0 ? tendanceGame : filteredGames} />
       </div>
     </div>
   );
 }
 
-export default DisplayGames;
+export default Catalogue;

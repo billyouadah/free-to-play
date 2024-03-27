@@ -3,14 +3,13 @@
   font-style: normal;
 }
 
-/* :root {
+:root {
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
  
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,26 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: black;
-  text-decoration: inherit;
-  margin: 30px;
-  flex-direction: row;
-  justify-content: space-evenly
-  
-}
-a:hover {
-  color: white;
-}
-
 body {
   margin: 0;
-  /* display: flex; */
-  /* place-items: center; */
-  /* min-width: 320px;
-  min-height: 100vh; */
-  /* background-color: #f168e6; */
+  place-items: center;
+  min-height: 100vh;
   background-color: #10002B;
   color: white;
 }

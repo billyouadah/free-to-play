@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Import du fichier CSS pour les styles du composant SearchBar
 import './searchbar.css';
-import img from "../../assets/search-bar-01.png";
+import img from "../../../assets/search-bar-01.png";
 
 
 // Définition du composant SearchBar
