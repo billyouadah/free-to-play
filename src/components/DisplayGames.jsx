@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import Display from './Display';
+import DisplayHeader from './Header/DisplayHeader';
 import FiltreBar from './FiltreBar';
 
-function DisplayGames({ setFilteredGames, filteredGames }) {
+function DisplayGames() {
+  const [filteredGames, setFilteredGames] = useState([]);
   const [allGame, setAllGame] = useState([]);
   const [loading, setLoading] = useState(true); // Ajout de l'état de chargement
 
@@ -31,14 +33,14 @@ function DisplayGames({ setFilteredGames, filteredGames }) {
     fetchAllGame();
   }, []);
 
-  const gameArray = allGame.slice(0, 200);
+  const tendanceGame = allGame.slice(0, 200);
 
   return (
     <div>
-      <h1 style={{ color:'white', fontSize:'64px' }}>Catalogue</h1>
-      <FiltreBar setFilteredGames={setFilteredGames} gameArray={gameArray} loading={loading} />
-      <div style={{ maxWidth: "1280px", marginLeft:"auto", marginRight: "auto" }}>
-        <Display setFilteredGames={setFilteredGames} fullTab={gameArray} tableau={filteredGames.length === 0 ? gameArray : filteredGames} />
+      <DisplayHeader setFilteredGames={setFilteredGames}></DisplayHeader>
+      <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={tendanceGame} loading={loading} />
+      <div>
+        <Display tableau={filteredGames.length === 0 ? tendanceGame : filteredGames} />
       </div>
     </div>
   );

@@ -4,21 +4,22 @@ function DisplayFooter() {
   return (
     <footer className="audiowide-regular"
       style={{
+        // position: "fixed",
         left: 0,
         bottom: 0,
         width: "100%",
-        marginTop: "16px",
         backgroundColor: "#9D4EDD",
+        // padding: "20px",
         display: "flex",
-        flexDirection:"column",
         justifyContent: "center",
-        alignItems:"center",
-      }}>
-        <div style={{ display:"flex", gap:"20px" }}>
-          <p>HARENGERE</p>
-          <p>On s'en FISH</p>
-        </div>
-          <p>© 2024</p>
+      }}
+    >
+      <div>
+        <a href="Accueil">Accueil</a>
+        <a href="Catalogue">Catalogue</a>
+        <a href="Contact">Contact</a>
+        <p>© 2024</p>
+      </div>
     </footer>
   );
 }

@@ -122,3 +122,4 @@ function DisplayHeader({ setFilteredGames }) {
   );}
 
 export default DisplayHeader;
+
