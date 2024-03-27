@@ -36,33 +36,33 @@ function Carousel3D() {
   if (error) return <p>{error}</p>;
 
   return (
-    <Carousel
-      autoPlay={true}
-      animation="fade"
-      timeout={100}
-      indicators={true}
-      navButtonsAlwaysInvisible={true}
-      IndicatorIcon={<SetMealRounded/>}
-      indicatorIconButtonProps={{
-        style: {
-          padding: '10px',
-          color: 'black',
-          border: 'none',
-        }
-      }}
-      activeIndicatorIconButtonProps={{
-        style: {
-          color: 'purple',
-          border: 'none',
-        }
-      }}
-    >
-      {randomGameIndices.map((index, i) => (
- <Paper key={i} style={{ borderRadius: '20px', background: 'transparent', boxShadow: 'none'}}>
- <a href={allGame[index]?.game_url}><img src={allGame[index]?.thumbnail} alt={`Image ${i + 1}`} style={{ height: '100%', borderRadius: '20px', }} /></a>
-</Paper>
-      ))}
-    </Carousel>
+      <Carousel
+        autoPlay={true}
+        animation="fade"
+        timeout={100}
+        indicators={true}
+        navButtonsAlwaysInvisible={true}
+        IndicatorIcon={<SetMealRounded/>}
+        indicatorIconButtonProps={{
+          style: {
+            padding: '10px',
+            color: 'black',
+            border: 'none',
+          }
+        }}
+        activeIndicatorIconButtonProps={{
+          style: {
+            color: 'purple',
+            border: 'none',
+          }
+        }}
+      >
+        {randomGameIndices.map((index, i) => (
+          <Paper key={i} sx={{ borderRadius: '20px', background: 'transparent', boxShadow: 'none', margin:"10px", maxWidth:"500px" }}>
+            <a href={allGame[index]?.game_url} target="_blank" rel="noopener noreferrer"><img src={allGame[index]?.thumbnail}  alt={`Image ${i + 1}`} style={{ height: '100%', borderRadius: '20px', width:"100%" }} /></a>
+          </Paper>
+        ))}
+        </Carousel> 
   );
 }
 

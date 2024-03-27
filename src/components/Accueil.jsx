@@ -36,7 +36,9 @@ function Accueil() {
   return (
     <div className="App">
       <h1 style={{ color:'white', fontSize:'64px' }}>Fish-To-Play</h1>
-      <Carousel3D />
+      <div >
+        <Carousel3D />
+      </div>
       <h1 style={{ color:'white', fontSize:'32px' }}>Fish tendance:</h1>
       <div style={{ maxWidth: "1280px", marginLeft:"auto", marginRight: "auto" }}>
         <Grid container  display="flex" justifyContent="center" sx={{ gap: 5 }} >
@@ -46,9 +48,8 @@ function Accueil() {
                 borderRadius: '10px',
                 boxShadow: '0 5px 10px rgba(0, 0, 0, 0.15)',
                 transition: 'transform .3s',
-                '&:hover': {
-                transform: 'scale3d(1.05, 1.05, 1)',
-                }, }}>
+                '&:hover': { transform: 'scale3d(1.05, 1.05, 1)',},
+                }}>
                 <div style={{ height: '100%',  display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <CardActionArea href={element.game_url} sx={{ height: '100%',  display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                     <div>
