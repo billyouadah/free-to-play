@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Display from '../Display/Display';
-import { Typography } from '@mui/material';
+import { Typography, useScrollTrigger, Zoom, Box, Fab } from '@mui/material';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import FiltreBar from '../FiltreBar/FiltreBar';
 
 function Catalogue({ setFilteredGames, filteredGames }) {
@@ -32,6 +33,17 @@ function Catalogue({ setFilteredGames, filteredGames }) {
     fetchAllGame();
   }, []);
 
+    // Use `window` instead of `body` as `document` will be `undefined` when the
+    // hooks first runs. By default, useScrollTrigger will attach itself to `window`.
+    const trigger = useScrollTrigger({
+      // Number of pixels needed to scroll to toggle `trigger` to `true`.
+      threshold: 100,
+    })
+  
+    const scrollToTop = useCallback(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }, [])
+
 
   return (
     <div>
@@ -43,6 +55,13 @@ function Catalogue({ setFilteredGames, filteredGames }) {
       <div style={{ maxWidth:"1280px", marginLeft:"auto", marginRight:"auto" }}>
         <Display fullTab={allGame} setFilteredGames={setFilteredGames} tableau={filteredGames.length === 0 ? allGame : filteredGames} />
       </div>
+      <Zoom in={trigger}>
+        <Box role="presentation" sx={{ position: "fixed", bottom: 32, right: 32, zIndex: 1, }}>
+          <Fab onClick={scrollToTop} size="small" aria-label="Scroll back to top">
+            <KeyboardArrowUpIcon fontSize="medium" />
+          </Fab>
+        </Box>
+      </Zoom>
     </div>
   );
 }
