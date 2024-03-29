@@ -9,6 +9,20 @@ import './Display.css'
 
 function Display({ tableau, setFilteredGames, fullTab }) {
 
+  // Fonctions pour filtrer
+  function filtreGenre(genre) {
+    let filtered = fullTab;
+    filtered = filtered.filter((game) => game.genre.includes(genre));
+    setFilteredGames(filtered);
+    console.log("filtre genre activé");
+  }
+  function filtrePlateforme(plateforme) {
+    let filtered = fullTab;
+    filtered = filtered.filter((game) => game.platform.includes(plateforme));
+    setFilteredGames(filtered);
+    console.log("filtre plateforme activé");
+  }
+  
   // État pour suivre la page actuelle
   const [currentPage, setCurrentPage] = useState(1);
   // Nombre de jeux à afficher par page
@@ -26,19 +40,6 @@ function Display({ tableau, setFilteredGames, fullTab }) {
     setCurrentPage(page)
   }
 
-  // Fonctions pour filtrer
-  function filtreGenre(genre) {
-    let filtered = fullTab;
-    filtered = filtered.filter((game) => game.genre.includes(genre));
-    setFilteredGames(filtered);
-    console.log("filtre genre activé");
-  }
-  function filtrePlateforme(plateforme) {
-    let filtered = fullTab;
-    filtered = filtered.filter((game) => game.platform.includes(plateforme));
-    setFilteredGames(filtered);
-    console.log("filtre plateforme activé");
-  }
 
   return (
     <>

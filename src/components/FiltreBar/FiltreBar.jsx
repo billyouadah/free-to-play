@@ -1,7 +1,7 @@
 import { Select, MenuItem, InputLabel, FormControl, Box } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
+const FiltreBar = ({ setFilteredGames, allGame, loading }) => {
   const [genre, setGenre] = useState("");
   const [plateforme, setPlateforme] = useState("");
 
@@ -22,7 +22,7 @@ const FiltreBar = ({ setFilteredGames, tendanceGame, loading }) => {
   };
 
   const applyFilter = () => {
-    let filtered = tendanceGame;
+    let filtered = allGame;
     if (genre !== "All") {
       filtered = filtered.filter((game) => game.genre.includes(genre));
     }

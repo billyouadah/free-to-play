@@ -51,7 +51,7 @@ function Catalogue({ setFilteredGames, filteredGames }) {
       sx={{ color:"white", margin:{xs:"10px", sm:"20px", md:"30px"}, fontSize:{xs:"42px", sm:"75px", md:"96px"} }}>
         Game :
       </Typography>
-      <FiltreBar setFilteredGames={setFilteredGames} tendanceGame={allGame} loading={loading} />
+      <FiltreBar setFilteredGames={setFilteredGames} allGame={allGame} loading={loading} />
       <div style={{ maxWidth:"1280px", marginLeft:"auto", marginRight:"auto" }}>
         <Display fullTab={allGame} setFilteredGames={setFilteredGames} tableau={filteredGames.length === 0 ? allGame : filteredGames} />
       </div>
