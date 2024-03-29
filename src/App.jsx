@@ -1,30 +1,27 @@
-import React, { useState } from "react";
-import DisplayHeader from "./components/Header/DisplayHeader";
-import DisplayFooter from "./components/Header/DisplayFooter";
-import SearchBar from "./components/Header/SearchBar";
-import DisplayCatalogue from "./components/DisplayCatalogue";
-import "./App.css";
+import Accueil from './components/PageAcueil/Accueil';
+import Catalogue from './components/PageCatalogue/Catalogue'
+import ContactForm from './components/Contact/Form/ContactForm';
+import DisplayHeader from './components/Header/DisplayHeader';
+import DisplayFooter from './components/Footer/DisplayFooter';
+import {Routes,Route} from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
+import { useState } from 'react';
+import './App.css'
 
 function App() {
   const [filteredGames, setFilteredGames] = useState([]);
 
   return (
-    <>
-   <DisplayHeader setFilteredGames={setFilteredGames} /> 
-      <div className="App">
-        <div className="games-container">
-          {filteredGames.map((game) => (
-            <div className="card" key={game.id}>
-              <h2>{game.title}</h2>
-              <p>{game.short_description}</p>
-              <img src={game.thumbnail} alt={game.title} />
-            </div>
-          ))}
-        </div>
-        <DisplayCatalogue />
-      </div>
+    <BrowserRouter>
+      <DisplayHeader setFilteredGames={setFilteredGames}></DisplayHeader> 
+      <Routes>
+        <Route path='/' element={<Accueil></Accueil>}></Route>
+        <Route path='/Accueil' element={<Accueil></Accueil>}></Route>
+        <Route path='/Catalogue' element={<Catalogue setFilteredGames={setFilteredGames} filteredGames={filteredGames}></Catalogue>}></Route>
+        <Route path='/Contact' element={<ContactForm></ContactForm>}></Route>
+      </Routes>
       <DisplayFooter />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Import du fichier CSS pour les styles du composant SearchBar
 import './searchbar.css';
-import img from "../../assets/search-bar-01.png";
+import img from "../../../assets/search-bar-01.png";
+
 
 // Définition du composant SearchBar
 const SearchBar = ({ setFilteredGames }) => {
@@ -12,10 +13,12 @@ const SearchBar = ({ setFilteredGames }) => {
 
     // Déclaration des états avec useState
     const [allGames, setAllGames] = useState([]); // Liste de tous les jeux
+
     console.log(allGames);
     // console.log(filteredGames);
     const [searchTerm, setSearchTerm] = useState(""); // Terme de recherche saisi par l'utilisateur
     console.log();
+
 
     // Fonction asynchrone pour récupérer les données des jeux depuis l'API
     const fetchApi = async () => {
@@ -32,41 +35,41 @@ const SearchBar = ({ setFilteredGames }) => {
             const response = await axios.request(options);
             // Mise à jour de l'état allGames avec les données récupérées
             setAllGames(response.data);
-            // setFilteredGames(response.data)
         } catch (error) {
             // Affichage des erreurs dans la console en cas d'échec de la requête
             console.error(error);
             throw error; // Lève à nouveau l'erreur pour la gérer ailleurs si nécessaire
         }
     }
-// Effet useEffect pour exécuter fetchApi une fois après le premier rendu du composant
-useEffect(() => {
-    fetchApi(); // Appel de la fonction fetchApi
-}, []);
 
-// Fonction pour filtrer les jeux en fonction du terme de recherche saisi par l'utilisateur
-const handleSearch = () => {
-    // Vérification si le terme de recherche est vide
-    if (!searchTerm.trim()) return;
-    // Filtrage des jeux en fonction du titre et mise à jour de l'état filteredGames
-    const filteredList = allGames.filter((game) => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
-    setFilteredGames(filteredList);
-    setSearchTerm("");
-}
-// console.log(filteredGames);
+    // Effet useEffect pour exécuter fetchApi une fois après le premier rendu du composant
+    useEffect(() => {
+        fetchApi(); // Appel de la fonction fetchApi
+    }, []);
 
-// Affichage du composant SearchBar avec un champ de recherche et une icône de recherche
-return (
-    <>
-    <div id="searchbar">
-    <input type="text" placeholder="Search.." id="searchinput" name="search" onChange={e => setSearchTerm(e.target.value)}/>
-        {/* Icône de recherche avec un événement onClick pour déclencher la recherche */}
-        <div>
-        <img src={img} id="search-icon" width="15" onClick={handleSearch} />
-   </div> 
-   </div>
-    </>
-)
+    // Fonction pour filtrer les jeux en fonction du terme de recherche saisi par l'utilisateur
+    const handleSearch = () => {
+        setFilteredGames([])
+        // Vérification si le terme de recherche est vide
+        if (!searchTerm.trim()) return;
+        // Filtrage des jeux en fonction du titre et mise à jour de l'état filteredGames
+        const filteredList = allGames.filter((game) => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        setFilteredGames(filteredList);
+        setSearchTerm("");
+    }
+
+    // Affichage du composant SearchBar avec un champ de recherche et une icône de recherche
+    return (
+        <>
+        <div id="searchbar">
+            <input type="text" placeholder="Search.." id="searchinput" name="search" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
+            {/* Icône de recherche avec un événement onClick pour déclencher la recherche */}
+            <div>
+            <img src={img} alt="search icon" id="search-icon" width="15" onClick={handleSearch} />
+            </div>
+        </div>
+        </>
+    )
 }
 
 // Export du composant SearchBar pour pouvoir l'utiliser dans d'autres fichiers

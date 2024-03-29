@@ -1,0 +1,16 @@
+#pagination .MuiButtonBase-root, #pagination .MuiPaginationItem-circular {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  
+  #pagination .MuiButtonBase-root:hover, #pagination .MuiButtonBase-root:focus, #pagination .MuiPaginationItem-root.Mui-selected {
+    background-color: rgb(255, 255, 255);
+    color: rgb(90, 24, 154);
+    border:none;
+    outline: none;
+  }
+  
+  body  {
+    background-color: #5a189a;
+  }
